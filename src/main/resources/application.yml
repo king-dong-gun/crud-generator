@@ -1,0 +1,15 @@
+# 데모용 설정: 별도 DB 설치 없이 H2 메모리 DB 로 실행한다.
+# (생성된 엔티티의 테이블을 JPA 가 만들도록 ddl-auto: create. 내 프로젝트에서는 none 권장)
+server:
+  port: 8080
+  tomcat:
+    # projectPath 에 탐색기에서 복사한 경로(C:\Users\...)를 그대로 붙여넣어도 되게 한다.
+    # (Tomcat 은 기본적으로 쿼리 문자열의 \ 를 거부하고 400 HTML 페이지를 돌려준다)
+    relaxed-query-chars: '\'
+spring:
+  datasource:
+    url: jdbc:h2:mem:demo
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
